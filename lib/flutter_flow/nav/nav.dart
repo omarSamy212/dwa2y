@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 
 import '/auth/base_auth_user_provider.dart';
@@ -75,13 +76,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? const CheckupWidget() : const DefaultLoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? const CheckupWidget() : const LoginWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? const CheckupWidget()
+              : const DefaultLoginWidget(),
         ),
         FFRoute(
           name: 'user_HomePage',
@@ -163,6 +165,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Default_Login',
           path: '/defaultLogin',
           builder: (context, params) => const DefaultLoginWidget(),
+        ),
+        FFRoute(
+          name: 'pharmAdminHome',
+          path: '/pharmAdminHome',
+          builder: (context, params) => const PharmAdminHomeWidget(),
+        ),
+        FFRoute(
+          name: 'listPharmUsers',
+          path: '/listPharmUsers',
+          asyncParams: {
+            'pharmDoc': getDoc(['Pharmacies'], PharmaciesRecord.fromSnapshot),
+          },
+          builder: (context, params) => ListPharmUsersWidget(
+            pharmDoc: params.getParam(
+              'pharmDoc',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -333,7 +353,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/login';
+            return '/defaultLogin';
           }
           return null;
         },

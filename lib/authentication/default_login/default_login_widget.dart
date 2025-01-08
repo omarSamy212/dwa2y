@@ -2,7 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'default_login_model.dart';
 export 'default_login_model.dart';
 
@@ -22,6 +24,11 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DefaultLoginModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setDarkModeSetting(context, ThemeMode.light);
+    });
 
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
@@ -143,8 +150,14 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                       controller:
                                           _model.emailAddressTextController,
                                       focusNode: _model.emailAddressFocusNode,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.emailAddressTextController',
+                                        const Duration(milliseconds: 2000),
+                                        () => safeSetState(() {}),
+                                      ),
                                       autofocus: true,
                                       autofillHints: const [AutofillHints.email],
+                                      textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'البريد الالكتروني',
@@ -193,6 +206,24 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                         filled: true,
                                         fillColor: FlutterFlowTheme.of(context)
                                             .primaryBackground,
+                                        suffixIcon: _model
+                                                .emailAddressTextController!
+                                                .text
+                                                .isNotEmpty
+                                            ? InkWell(
+                                                onTap: () async {
+                                                  _model
+                                                      .emailAddressTextController
+                                                      ?.clear();
+                                                  safeSetState(() {});
+                                                },
+                                                child: const Icon(
+                                                  Icons.clear,
+                                                  color: Color(0xFF757575),
+                                                  size: 22.0,
+                                                ),
+                                              )
+                                            : null,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -200,6 +231,7 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                             fontFamily: 'Readex Pro',
                                             letterSpacing: 0.0,
                                           ),
+                                      textAlign: TextAlign.start,
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model
                                           .emailAddressTextControllerValidator
@@ -217,6 +249,7 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                       focusNode: _model.passwordFocusNode,
                                       autofocus: true,
                                       autofillHints: const [AutofillHints.password],
+                                      textInputAction: TextInputAction.go,
                                       obscureText: !_model.passwordVisibility,
                                       decoration: InputDecoration(
                                         labelText: 'كلمة المرور',

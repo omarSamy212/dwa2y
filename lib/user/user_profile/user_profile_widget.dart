@@ -296,7 +296,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                     await authManager.signOut();
                     GoRouter.of(context).clearRedirectLocation();
 
-                    context.goNamedAuth('Login', context.mounted);
+                    context.goNamedAuth('Default_Login', context.mounted);
                   },
                   text: 'Log Out',
                   options: FFButtonOptions(

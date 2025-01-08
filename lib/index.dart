@@ -17,3 +17,7 @@ export '/admin/admin_home/admin_home_widget.dart' show AdminHomeWidget;
 export '/admin/add_pharm/add_pharm_widget.dart' show AddPharmWidget;
 export '/authentication/default_login/default_login_widget.dart'
     show DefaultLoginWidget;
+export '/pharmacy_admin/pharm_admin_home/pharm_admin_home_widget.dart'
+    show PharmAdminHomeWidget;
+export '/pharmacy_admin/list_pharm_users/list_pharm_users_widget.dart'
+    show ListPharmUsersWidget;

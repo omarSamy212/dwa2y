@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/empty_list_place_holder/empty_list_place_holder_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -181,46 +182,46 @@ class _PharmaSListWidgetState extends State<PharmaSListWidget>
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30.0,
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: const Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.goNamed('admin_home');
+              },
             ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-            child: Text(
-              'قائمة الصيدليات',
-              textAlign: TextAlign.start,
-              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Inter',
-                    color: Colors.white,
-                    letterSpacing: 0.0,
-                    lineHeight: 1.2,
-                  ),
+            title: Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+              child: Text(
+                'قائمة الصيدليات',
+                textAlign: TextAlign.start,
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Inter',
+                      color: Colors.white,
+                      letterSpacing: 0.0,
+                      lineHeight: 1.2,
+                    ),
+              ),
             ),
+            actions: const [],
+            centerTitle: false,
+            elevation: 2.0,
           ),
-          actions: const [],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Column(
+          body: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
@@ -1178,6 +1179,11 @@ class _PharmaSListWidgetState extends State<PharmaSListWidget>
                                                 .toList()
                                                 .map((e) => e)
                                                 .toList();
+                                        if (activePharm.isEmpty) {
+                                          return const Center(
+                                            child: EmptyListPlaceHolderWidget(),
+                                          );
+                                        }
 
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
@@ -1473,6 +1479,11 @@ class _PharmaSListWidgetState extends State<PharmaSListWidget>
                                                 .toList()
                                                 .map((e) => e)
                                                 .toList();
+                                        if (nonActivePharm.isEmpty) {
+                                          return const Center(
+                                            child: EmptyListPlaceHolderWidget(),
+                                          );
+                                        }
 
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,

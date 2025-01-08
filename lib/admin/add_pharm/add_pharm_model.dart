@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'add_pharm_widget.dart' show AddPharmWidget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
   ///  State fields for stateful widgets in this page.
@@ -35,14 +34,13 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
-  final phoneMask = MaskTextInputFormatter(mask: '(###) ###-#####');
   String? Function(BuildContext, String?)? phoneTextControllerValidator;
   String? _phoneTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'رقم الهاتف مطلوب';
     }
 
-    if (!RegExp('^\\(\\d{3}\\)\\s\\d{3}-\\d{4}\$').hasMatch(val)) {
+    if (!RegExp('^(01[1250])(\\d{4})(\\d{4})\$').hasMatch(val)) {
       return 'أدخل رقم هاتف صحيح';
     }
     return null;

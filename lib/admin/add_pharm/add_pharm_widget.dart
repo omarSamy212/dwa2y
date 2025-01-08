@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'add_pharm_model.dart';
 export 'add_pharm_model.dart';
@@ -86,8 +87,8 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              context.goNamed('admin_home');
             },
           ),
           title: Text(
@@ -166,7 +167,7 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryText,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -202,6 +203,7 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                         fontFamily: 'Readex Pro',
                                         letterSpacing: 0.0,
                                       ),
+                                  textAlign: TextAlign.start,
                                   minLines: 1,
                                   validator: _model.emailTextControllerValidator
                                       .asValidator(context),
@@ -242,7 +244,7 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryText,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -285,6 +287,11 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                 TextFormField(
                                   controller: _model.phoneTextController,
                                   focusNode: _model.phoneFocusNode,
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.phoneTextController',
+                                    const Duration(milliseconds: 2000),
+                                    () => safeSetState(() {}),
+                                  ),
                                   autofocus: false,
                                   textInputAction: TextInputAction.next,
                                   obscureText: false,
@@ -305,7 +312,7 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryText,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -334,6 +341,23 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                     filled: true,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
+                                    suffixIcon: _model.phoneTextController!.text
+                                            .isNotEmpty
+                                        ? InkWell(
+                                            onTap: () async {
+                                              _model.phoneTextController
+                                                  ?.clear();
+                                              safeSetState(() {});
+                                            },
+                                            child: Icon(
+                                              Icons.clear,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 22.0,
+                                            ),
+                                          )
+                                        : null,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -341,11 +365,11 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                         fontFamily: 'Readex Pro',
                                         letterSpacing: 0.0,
                                       ),
+                                  textAlign: TextAlign.start,
                                   minLines: 1,
                                   keyboardType: TextInputType.phone,
                                   validator: _model.phoneTextControllerValidator
                                       .asValidator(context),
-                                  inputFormatters: [_model.phoneMask],
                                 ),
                                 if (false)
                                   Container(
@@ -477,7 +501,7 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryText,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -540,7 +564,7 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                            .secondaryText,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
@@ -576,6 +600,7 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                                         fontFamily: 'Readex Pro',
                                         letterSpacing: 0.0,
                                       ),
+                                  textAlign: TextAlign.end,
                                   maxLines: 6,
                                   minLines: 3,
                                   validator: _model
@@ -815,6 +840,10 @@ class _AddPharmWidgetState extends State<AddPharmWidget> {
                   Builder(
                     builder: (context) => FFButtonWidget(
                       onPressed: () async {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
+                          return;
+                        }
                         await showDialog(
                           context: context,
                           builder: (dialogContext) {

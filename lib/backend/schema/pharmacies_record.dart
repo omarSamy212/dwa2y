@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -41,8 +42,8 @@ class PharmaciesRecord extends FirestoreRecord {
   bool hasLogo() => _logo != null;
 
   // "linkedPatients" field.
-  DocumentReference? _linkedPatients;
-  DocumentReference? get linkedPatients => _linkedPatients;
+  List<DocumentReference>? _linkedPatients;
+  List<DocumentReference> get linkedPatients => _linkedPatients ?? const [];
   bool hasLinkedPatients() => _linkedPatients != null;
 
   void _initializeFields() {
@@ -51,7 +52,7 @@ class PharmaciesRecord extends FirestoreRecord {
     _isActive = snapshotData['isActive'] as bool?;
     _pharmacyAdmin = snapshotData['pharmacyAdmin'] as DocumentReference?;
     _logo = snapshotData['logo'] as String?;
-    _linkedPatients = snapshotData['linkedPatients'] as DocumentReference?;
+    _linkedPatients = getDataList(snapshotData['linkedPatients']);
   }
 
   static CollectionReference get collection =>
@@ -94,7 +95,6 @@ Map<String, dynamic> createPharmaciesRecordData({
   bool? isActive,
   DocumentReference? pharmacyAdmin,
   String? logo,
-  DocumentReference? linkedPatients,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,7 +103,6 @@ Map<String, dynamic> createPharmaciesRecordData({
       'isActive': isActive,
       'pharmacyAdmin': pharmacyAdmin,
       'logo': logo,
-      'linkedPatients': linkedPatients,
     }.withoutNulls,
   );
 
@@ -115,12 +114,13 @@ class PharmaciesRecordDocumentEquality implements Equality<PharmaciesRecord> {
 
   @override
   bool equals(PharmaciesRecord? e1, PharmaciesRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.name == e2?.name &&
         e1?.location == e2?.location &&
         e1?.isActive == e2?.isActive &&
         e1?.pharmacyAdmin == e2?.pharmacyAdmin &&
         e1?.logo == e2?.logo &&
-        e1?.linkedPatients == e2?.linkedPatients;
+        listEquality.equals(e1?.linkedPatients, e2?.linkedPatients);
   }
 
   @override

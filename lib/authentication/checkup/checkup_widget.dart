@@ -31,6 +31,7 @@ class _CheckupWidgetState extends State<CheckupWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setDarkModeSetting(context, ThemeMode.light);
       await Future.delayed(const Duration(milliseconds: 5000));
       if (currentUserDocument?.role == Role.admin) {
         context.goNamedAuth('admin_home', context.mounted);
