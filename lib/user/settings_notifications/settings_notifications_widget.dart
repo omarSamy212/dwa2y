@@ -59,8 +59,9 @@ class _SettingsNotificationsWidgetState
         title: Text(
           'Settings Page',
           style: FlutterFlowTheme.of(context).headlineSmall.override(
-                fontFamily: 'Inter',
+                fontFamily: 'Noto Sans Arabic',
                 letterSpacing: 0.0,
+                useGoogleFonts: false,
               ),
         ),
         actions: const [],
@@ -79,7 +80,7 @@ class _SettingsNotificationsWidgetState
                   child: Text(
                     'Choose what notifcations you want to recieve below and we will update the settings.',
                     style: FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Open Sans',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -99,7 +100,7 @@ class _SettingsNotificationsWidgetState
                 title: Text(
                   'Push Notifications',
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Open Sans',
                         letterSpacing: 0.0,
                         lineHeight: 2.0,
                       ),
@@ -107,7 +108,7 @@ class _SettingsNotificationsWidgetState
                 subtitle: Text(
                   'Receive Push notifications from our application on a semi regular basis.',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Open Sans',
                         color: const Color(0xFF8B97A2),
                         letterSpacing: 0.0,
                       ),
@@ -136,7 +137,7 @@ class _SettingsNotificationsWidgetState
                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: 'Open Sans',
                       color: Colors.white,
                       letterSpacing: 0.0,
                     ),

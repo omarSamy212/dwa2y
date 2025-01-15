@@ -1,9 +1,8 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'add_pharm_widget.dart' show AddPharmWidget;
+import 'edit_pharm_widget.dart' show EditPharmWidget;
 import 'package:flutter/material.dart';
 
-class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
+class EditPharmModel extends FlutterFlowModel<EditPharmWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -11,19 +10,6 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
   FocusNode? emailFocusNode;
   TextEditingController? emailTextController;
   String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'البريد الالكتروني مطلوب';
-    }
-
-    return null;
-  }
-
-  // State field(s) for pass widget.
-  FocusNode? passFocusNode;
-  TextEditingController? passTextController;
-  late bool passVisibility;
-  String? Function(BuildContext, String?)? passTextControllerValidator;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -73,21 +59,15 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
   bool? switchValue;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
-  TextEditingController? textController7;
-  String? Function(BuildContext, String?)? textController7Validator;
+  TextEditingController? textController6;
+  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
-  TextEditingController? textController8;
-  String? Function(BuildContext, String?)? textController8Validator;
-  // Stores action output result for [Custom Action - createPharmAcc] action in Button widget.
-  DocumentReference? userDocRef;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  PharmaciesRecord? pharmDocRef;
+  TextEditingController? textController7;
+  String? Function(BuildContext, String?)? textController7Validator;
 
   @override
   void initState(BuildContext context) {
-    emailTextControllerValidator = _emailTextControllerValidator;
-    passVisibility = false;
     nameTextControllerValidator = _nameTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
     locationTextControllerValidator = _locationTextControllerValidator;
@@ -97,9 +77,6 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
   void dispose() {
     emailFocusNode?.dispose();
     emailTextController?.dispose();
-
-    passFocusNode?.dispose();
-    passTextController?.dispose();
 
     nameFocusNode?.dispose();
     nameTextController?.dispose();
@@ -114,9 +91,9 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
     locationTextController?.dispose();
 
     textFieldFocusNode1?.dispose();
-    textController7?.dispose();
+    textController6?.dispose();
 
     textFieldFocusNode2?.dispose();
-    textController8?.dispose();
+    textController7?.dispose();
   }
 }

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'phram_details_widget.dart' show PhramDetailsWidget;
+import 'user_details_widget.dart' show UserDetailsWidget;
 import 'package:flutter/material.dart';
 
-class PhramDetailsModel extends FlutterFlowModel<PhramDetailsWidget> {
+class UserDetailsModel extends FlutterFlowModel<UserDetailsWidget> {
   @override
   void initState(BuildContext context) {}
 

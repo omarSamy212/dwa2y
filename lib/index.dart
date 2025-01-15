@@ -21,3 +21,9 @@ export '/pharmacy_admin/pharm_admin_home/pharm_admin_home_widget.dart'
     show PharmAdminHomeWidget;
 export '/pharmacy_admin/list_pharm_users/list_pharm_users_widget.dart'
     show ListPharmUsersWidget;
+export '/pharmacy_admin/add_pharm_user/add_pharm_user_widget.dart'
+    show AddPharmUserWidget;
+export '/admin/edit_pharm/edit_pharm_widget.dart' show EditPharmWidget;
+export '/pharmacy_admin/user_details/user_details_widget.dart'
+    show UserDetailsWidget;
+export '/pharmacy_admin/edit_user/edit_user_widget.dart' show EditUserWidget;

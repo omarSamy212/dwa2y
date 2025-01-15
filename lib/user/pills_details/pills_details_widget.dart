@@ -169,9 +169,10 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Noto Sans Arabic',
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    useGoogleFonts: false,
                                   ),
                             ),
                             Text(
@@ -179,7 +180,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Open Sans',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -266,8 +267,10 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily:
+                                                            'Noto Sans Arabic',
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Row(
@@ -281,8 +284,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                           context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Open Sans',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -338,7 +340,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          'Open Sans',
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -377,7 +379,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          'Open Sans',
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -425,7 +427,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -458,7 +460,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -482,8 +484,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Open Sans',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -504,7 +505,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                           .bodyLarge
                                                           .override(
                                                             fontFamily:
-                                                                'Readex Pro',
+                                                                'Open Sans',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -515,7 +516,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                           .bodyLarge
                                                           .override(
                                                             fontFamily:
-                                                                'Readex Pro',
+                                                                'Open Sans',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
@@ -527,7 +528,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                               .bodyLarge
                                                               .override(
                                                                 fontFamily:
-                                                                    'Readex Pro',
+                                                                    'Open Sans',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
@@ -562,7 +563,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              'Open Sans',
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -606,8 +607,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Open Sans',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -685,7 +685,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                 .bodyLarge
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -697,7 +697,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                 .labelMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -724,8 +724,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Open Sans',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -735,8 +734,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Open Sans',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -753,8 +751,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Open Sans',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -784,7 +781,7 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                 .labelLarge
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -796,9 +793,11 @@ class _PillsDetailsWidgetState extends State<PillsDetailsWidget>
                                                                 .displaySmall
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Inter',
+                                                                      'Noto Sans Arabic',
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts:
+                                                                      false,
                                                                 ),
                                                       ),
                                                     ),

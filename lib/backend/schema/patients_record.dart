@@ -16,11 +16,6 @@ class PatientsRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "linkedPharmacies" field.
-  List<DocumentReference>? _linkedPharmacies;
-  List<DocumentReference> get linkedPharmacies => _linkedPharmacies ?? const [];
-  bool hasLinkedPharmacies() => _linkedPharmacies != null;
-
   // "medicineList" field.
   List<DocumentReference>? _medicineList;
   List<DocumentReference> get medicineList => _medicineList ?? const [];
@@ -36,11 +31,28 @@ class PatientsRecord extends FirestoreRecord {
   String get phone => _phone ?? '';
   bool hasPhone() => _phone != null;
 
+  // "userRef" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
+
+  // "notes" field.
+  String? _notes;
+  String get notes => _notes ?? '';
+  bool hasNotes() => _notes != null;
+
+  // "linkedPharmacies" field.
+  List<DocumentReference>? _linkedPharmacies;
+  List<DocumentReference> get linkedPharmacies => _linkedPharmacies ?? const [];
+  bool hasLinkedPharmacies() => _linkedPharmacies != null;
+
   void _initializeFields() {
-    _linkedPharmacies = getDataList(snapshotData['linkedPharmacies']);
     _medicineList = getDataList(snapshotData['medicineList']);
     _name = snapshotData['name'] as String?;
     _phone = snapshotData['phone'] as String?;
+    _userRef = snapshotData['userRef'] as DocumentReference?;
+    _notes = snapshotData['notes'] as String?;
+    _linkedPharmacies = getDataList(snapshotData['linkedPharmacies']);
   }
 
   static CollectionReference get collection =>
@@ -80,11 +92,15 @@ class PatientsRecord extends FirestoreRecord {
 Map<String, dynamic> createPatientsRecordData({
   String? name,
   String? phone,
+  DocumentReference? userRef,
+  String? notes,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
       'phone': phone,
+      'userRef': userRef,
+      'notes': notes,
     }.withoutNulls,
   );
 
@@ -97,15 +113,23 @@ class PatientsRecordDocumentEquality implements Equality<PatientsRecord> {
   @override
   bool equals(PatientsRecord? e1, PatientsRecord? e2) {
     const listEquality = ListEquality();
-    return listEquality.equals(e1?.linkedPharmacies, e2?.linkedPharmacies) &&
-        listEquality.equals(e1?.medicineList, e2?.medicineList) &&
+    return listEquality.equals(e1?.medicineList, e2?.medicineList) &&
         e1?.name == e2?.name &&
-        e1?.phone == e2?.phone;
+        e1?.phone == e2?.phone &&
+        e1?.userRef == e2?.userRef &&
+        e1?.notes == e2?.notes &&
+        listEquality.equals(e1?.linkedPharmacies, e2?.linkedPharmacies);
   }
 
   @override
-  int hash(PatientsRecord? e) => const ListEquality()
-      .hash([e?.linkedPharmacies, e?.medicineList, e?.name, e?.phone]);
+  int hash(PatientsRecord? e) => const ListEquality().hash([
+        e?.medicineList,
+        e?.name,
+        e?.phone,
+        e?.userRef,
+        e?.notes,
+        e?.linkedPharmacies
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is PatientsRecord;

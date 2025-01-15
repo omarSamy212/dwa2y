@@ -151,10 +151,11 @@ class _UserHomePageWidgetState extends State<UserHomePageWidget>
                       'دوائي',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Inter',
+                                fontFamily: 'Noto Sans Arabic',
                                 color: Colors.white,
                                 fontSize: 22.0,
                                 letterSpacing: 0.0,
+                                useGoogleFonts: false,
                               ),
                     ),
                   ),
@@ -362,7 +363,7 @@ class _UserHomePageWidgetState extends State<UserHomePageWidget>
                           'أدويتك اليوم',
                           style:
                               FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Open Sans',
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                   ),
@@ -376,7 +377,7 @@ class _UserHomePageWidgetState extends State<UserHomePageWidget>
                           style: FlutterFlowTheme.of(context)
                               .labelMedium
                               .override(
-                                fontFamily: 'Readex Pro',
+                                fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).secondary,
                                 letterSpacing: 0.0,
                               ),
@@ -445,10 +446,11 @@ class _UserHomePageWidgetState extends State<UserHomePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Noto Sans Arabic',
                                                 fontSize: 22.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
+                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -481,8 +483,7 @@ class _UserHomePageWidgetState extends State<UserHomePageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
+                                                        fontFamily: 'Open Sans',
                                                         letterSpacing: 0.0,
                                                       ),
                                               elevation: 0.0,
@@ -506,7 +507,7 @@ class _UserHomePageWidgetState extends State<UserHomePageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Open Sans',
                                         letterSpacing: 0.0,
                                       ),
                                 ),

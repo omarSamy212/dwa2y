@@ -14,15 +14,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-// Replace 'YourRoleEnum' with the actual enum type you defined in FlutterFlow
-Future<DocumentReference?> createPharmAcc(
+Future<DocumentReference?> createPatient(
   String email,
   String name,
   String password,
-  String logoUrl,
-  String location,
   String phone,
-  Role role, // Enum type from FlutterFlow
+  String notes,
+  String age,
+  Role role,
+  DocumentReference pharmacyRef, // Pharmacy reference
 ) async {
   try {
     // Generate a unique app name for Firebase initialization
@@ -49,28 +49,44 @@ Future<DocumentReference?> createPharmAcc(
       throw Exception('Failed to create user.');
     }
 
-    // Add user document to Firestore
-    final userDoc = {
-      'email': email,
-      'role': role.name, // Convert enum to string for Firestore storage
-      'created_at': FieldValue.serverTimestamp(),
-      'photo_url': logoUrl,
-      'phone_number': phone,
-      'display_name': name
-    };
-
+    // Create the user document in Firestore
     final userDocRef =
         FirebaseFirestore.instance.collection('users').doc(userId);
+    final userDoc = {
+      'email': email,
+      'created_at': FieldValue.serverTimestamp(),
+      'phone_number': phone,
+      'display_name': name,
+      'linkedPharmacies': FieldValue.arrayUnion([pharmacyRef]),
+      'role': role.name,
+      'age': age
+    };
     await userDocRef.set(userDoc);
+
+    // Create the patient document in Firestore
+    // final patientDocRef =
+    //     FirebaseFirestore.instance.collection('patients').doc();
+    // final patientDoc = {
+    //   'name': name,
+    //   'phone': phone,
+    //   'notes': notes,
+    //   'userRef': userDocRef, // Reference to the created user document
+    //   'linkedPharmacies':
+    //       FieldValue.arrayUnion([pharmacyRef]), // Add pharmacyRef to the list
+    //   'created_at': FieldValue.serverTimestamp(),
+    // };
+    // await patientDocRef.set(patientDoc);
+
+    // // Update the user document with a reference to the patient document
+    // await userDocRef.update({'patientRef': patientDocRef});
 
     // Delete the temporary app instance
     await app.delete();
 
-    // Return the Firestore document reference
+    // Return the Firestore document reference of the created patient
     return userDocRef;
   } catch (e) {
-    print(
-        'Error creating user with enum role and returning document reference: $e');
+    print('Error creating patient:$e');
     return null; // Return null on failure
   }
 }

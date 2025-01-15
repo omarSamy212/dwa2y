@@ -181,106 +181,106 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Inter';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Inter',
+  String get displayLargeFamily => 'Noto Sans Arabic';
+  TextStyle get displayLarge => TextStyle(
+        fontFamily: 'Noto Sans Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
-  String get displayMediumFamily => 'Inter';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Inter',
+  String get displayMediumFamily => 'Noto Sans Arabic';
+  TextStyle get displayMedium => TextStyle(
+        fontFamily: 'Noto Sans Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get displaySmallFamily => 'Inter';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Inter',
+  String get displaySmallFamily => 'Noto Sans Arabic';
+  TextStyle get displaySmall => TextStyle(
+        fontFamily: 'Noto Sans Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 30.0,
       );
-  String get headlineLargeFamily => 'Inter';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Inter',
+  String get headlineLargeFamily => 'Noto Sans Arabic';
+  TextStyle get headlineLarge => TextStyle(
+        fontFamily: 'Noto Sans Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Inter';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Inter',
+  String get headlineMediumFamily => 'Noto Sans Arabic';
+  TextStyle get headlineMedium => TextStyle(
+        fontFamily: 'Noto Sans Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
-  String get headlineSmallFamily => 'Inter';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Inter',
+  String get headlineSmallFamily => 'Noto Sans Arabic';
+  TextStyle get headlineSmall => TextStyle(
+        fontFamily: 'Noto Sans Arabic',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
-  String get titleLargeFamily => 'Readex Pro';
+  String get titleLargeFamily => 'Open Sans';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Readex Pro';
+  String get titleMediumFamily => 'Open Sans';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get titleSmallFamily => 'Readex Pro';
+  String get titleSmallFamily => 'Open Sans';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelLargeFamily => 'Readex Pro';
+  String get labelLargeFamily => 'Open Sans';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Readex Pro';
+  String get labelMediumFamily => 'Open Sans';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Readex Pro';
+  String get labelSmallFamily => 'Open Sans';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Readex Pro';
+  String get bodyLargeFamily => 'Open Sans';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.primaryText,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Readex Pro';
+  String get bodyMediumFamily => 'Open Sans';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Readex Pro';
+  String get bodySmallFamily => 'Open Sans';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Open Sans',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

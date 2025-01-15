@@ -174,11 +174,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -189,11 +191,12 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .displaySmall
                                     .override(
-                                      fontFamily: 'Outfit',
+                                      fontFamily: 'Noto Sans Arabic',
                                       color: Colors.white,
                                       fontSize: 36.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts: false,
                                     ),
                               ).animateOnPageLoad(
                                   animationsMap['textOnPageLoadAnimation']!),
@@ -210,17 +213,22 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                               ),
                             ],
                           ),
-                          Text(
-                            'صحتك مهمتنا',
-                            style: FlutterFlowTheme.of(context)
-                                .displaySmall
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 20.0),
+                            child: Text(
+                              'صحتك أولويتنا:',
+                              style: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .override(
+                                    fontFamily: 'Noto Sans Arabic',
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: false,
+                                  ),
+                            ),
                           ),
                         ],
                       ),
@@ -229,7 +237,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                 ),
               ),
               actions: const [],
-              centerTitle: false,
+              centerTitle: true,
               toolbarHeight: 100.0,
               elevation: 3.0,
             ),
@@ -295,7 +303,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
+                                                            .fromSTEB(0.0, 5.0,
                                                                 0.0, 5.0),
                                                     child: Text(
                                                       'مرحبا',
@@ -304,7 +312,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Readex Pro',
+                                                                'Open Sans',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
@@ -326,11 +334,13 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                           .bodyMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Readex Pro',
+                                                                'Noto Sans Arabic',
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
+                                                            useGoogleFonts:
+                                                                false,
                                                           ),
                                                     ),
                                                   ),
@@ -539,16 +549,19 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                         mainAxisAlignment:
                                                                             MainAxisAlignment.spaceBetween,
                                                                         children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                const AlignmentDirectional(-1.0, 0.0),
+                                                                          Expanded(
                                                                             child:
-                                                                                Text(
-                                                                              'صيدليات',
-                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
-                                                                                    letterSpacing: 0.0,
-                                                                                  ),
+                                                                                Align(
+                                                                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                                                                              child: Text(
+                                                                                'صيدليات',
+                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                      fontFamily: 'Noto Sans Arabic',
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                      useGoogleFonts: false,
+                                                                                    ),
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                           if (responsiveVisibility(
@@ -629,9 +642,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).displaySmall.override(
-                                                                                            fontFamily: 'Inter',
+                                                                                            fontFamily: 'Noto Sans Arabic',
                                                                                             fontSize: 20.0,
                                                                                             letterSpacing: 0.0,
+                                                                                            useGoogleFonts: false,
                                                                                           ),
                                                                                     ),
                                                                                   );
@@ -654,7 +668,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               child: Text(
                                                                                 '32.2%',
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                      fontFamily: 'Readex Pro',
+                                                                                      fontFamily: 'Open Sans',
                                                                                       color: FlutterFlowTheme.of(context).secondary,
                                                                                       letterSpacing: 0.0,
                                                                                     ),
@@ -710,9 +724,10 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                         )
                                                                                       ],
                                                                                       style: FlutterFlowTheme.of(context).displaySmall.override(
-                                                                                            fontFamily: 'Inter',
+                                                                                            fontFamily: 'Noto Sans Arabic',
                                                                                             fontSize: 20.0,
                                                                                             letterSpacing: 0.0,
+                                                                                            useGoogleFonts: false,
                                                                                           ),
                                                                                     ),
                                                                                   );
@@ -735,7 +750,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                 Text(
                                                                               'نشط',
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: 'Open Sans',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -748,7 +763,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                 Text(
                                                                               'غير نشط',
                                                                               style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                    fontFamily: 'Readex Pro',
+                                                                                    fontFamily: 'Open Sans',
                                                                                     fontSize: 12.0,
                                                                                     letterSpacing: 0.0,
                                                                                   ),
@@ -833,7 +848,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
-                                                                                fontFamily: 'Readex Pro',
+                                                                                fontFamily: 'Open Sans',
                                                                                 letterSpacing: 0.0,
                                                                               ),
                                                                         ),
@@ -881,7 +896,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                               Text(
                                                                             '32.2%',
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                  fontFamily: 'Readex Pro',
+                                                                                  fontFamily: 'Open Sans',
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   letterSpacing: 0.0,
                                                                                 ),
@@ -930,8 +945,9 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                                     )
                                                                                   ],
                                                                                   style: FlutterFlowTheme.of(context).displaySmall.override(
-                                                                                        fontFamily: 'Inter',
+                                                                                        fontFamily: 'Noto Sans Arabic',
                                                                                         letterSpacing: 0.0,
+                                                                                        useGoogleFonts: false,
                                                                                       ),
                                                                                 ),
                                                                               );
@@ -1023,7 +1039,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .titleLarge
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .info,
@@ -1065,7 +1081,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    context.goNamed(
+                                                    context.pushNamed(
                                                         'PharmaS_List');
                                                   },
                                                   child: Container(
@@ -1115,7 +1131,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .labelMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   fontSize:
                                                                       13.0,
                                                                   letterSpacing:
@@ -1139,7 +1155,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context
-                                                        .goNamed('add_pharm');
+                                                        .pushNamed('add_pharm');
                                                   },
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
@@ -1188,7 +1204,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                                                 .labelMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   fontSize:
                                                                       13.0,
                                                                   letterSpacing:
@@ -1251,7 +1267,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Open Sans',
                                         color: Colors.white,
                                         letterSpacing: 0.0,
                                       ),
@@ -1271,7 +1287,7 @@ class _AdminHomeWidgetState extends State<AdminHomeWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Open Sans',
                                       letterSpacing: 0.0,
                                     ),
                               ),

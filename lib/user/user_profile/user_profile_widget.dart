@@ -272,8 +272,9 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                 child: Text(
                   'Andrea Davis',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
-                        fontFamily: 'Inter',
+                        fontFamily: 'Noto Sans Arabic',
                         letterSpacing: 0.0,
+                        useGoogleFonts: false,
                       ),
                 ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               ),
@@ -282,7 +283,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                 child: Text(
                   '25 سنة',
                   style: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Open Sans',
                         color: FlutterFlowTheme.of(context).secondary,
                         letterSpacing: 0.0,
                       ),
@@ -307,7 +308,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Open Sans',
                           letterSpacing: 0.0,
                         ),
                     elevation: 0.0,
@@ -367,7 +368,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Open Sans',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -396,9 +397,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                   child: Text(
                     'كورس الدواء الحالي',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Noto Sans Arabic',
                           fontSize: 18.0,
                           letterSpacing: 0.0,
+                          useGoogleFonts: false,
                         ),
                   ).animateOnPageLoad(
                       animationsMap['textOnPageLoadAnimation3']!),
@@ -463,10 +465,11 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Noto Sans Arabic',
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
+                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),

@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/components/empty_list_place_holder/empty_list_place_holder_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,285 +49,297 @@ class _ListPharmUsersWidgetState extends State<ListPharmUsersWidget> {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: const Icon(
-                Icons.arrow_back_rounded,
-                color: Colors.white,
-                size: 30.0,
-              ),
-              onPressed: () async {
-                context.goNamed('pharmAdminHome');
-              },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: const Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
             ),
-            title: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-              child: Text(
-                'قائمة العملاء',
-                textAlign: TextAlign.start,
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'Inter',
-                      color: Colors.white,
-                      letterSpacing: 0.0,
-                      lineHeight: 1.2,
-                    ),
-              ),
-            ),
-            actions: const [],
-            centerTitle: false,
-            elevation: 2.0,
+            onPressed: () async {
+              context.goNamed('pharmAdminHome');
+            },
           ),
-          body: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 80.0,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        FlutterFlowTheme.of(context).accent4
-                                      ],
-                                      stops: const [0.0, 1.0],
-                                      begin: const AlignmentDirectional(0.0, -1.0),
-                                      end: const AlignmentDirectional(0, 1.0),
-                                    ),
+          title: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+            child: Text(
+              'قائمة العملاء',
+              textAlign: TextAlign.start,
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Noto Sans Arabic',
+                    color: Colors.white,
+                    letterSpacing: 0.0,
+                    useGoogleFonts: false,
+                    lineHeight: 1.2,
+                  ),
+            ),
+          ),
+          actions: const [],
+          centerTitle: false,
+          elevation: 2.0,
+        ),
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                height: 80.0,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      FlutterFlowTheme.of(context).accent4
+                                    ],
+                                    stops: const [0.0, 1.0],
+                                    begin: const AlignmentDirectional(0.0, -1.0),
+                                    end: const AlignmentDirectional(0, 1.0),
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 8.0, 16.0, 12.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 60.0,
-                                      decoration: BoxDecoration(
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 8.0, 16.0, 12.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 60.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          blurRadius: 3.0,
+                                          color: Color(0x33000000),
+                                          offset: Offset(
+                                            0.0,
+                                            1.0,
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      border: Border.all(
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        boxShadow: const [
-                                          BoxShadow(
-                                            blurRadius: 3.0,
-                                            color: Color(0x33000000),
-                                            offset: Offset(
-                                              0.0,
-                                              1.0,
-                                            ),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                        ),
+                                            .alternate,
                                       ),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 8.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Icon(
-                                              Icons.search_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 24.0,
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 0.0, 0.0, 0.0),
-                                                child: SizedBox(
-                                                  width: 200.0,
-                                                  child: TextFormField(
-                                                    controller:
-                                                        _model.textController,
-                                                    focusNode: _model
-                                                        .textFieldFocusNode,
-                                                    autofocus: false,
-                                                    textInputAction:
-                                                        TextInputAction.search,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      labelText: 'Search...',
-                                                      labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                      enabledBorder:
-                                                          InputBorder.none,
-                                                      focusedBorder:
-                                                          InputBorder.none,
-                                                      errorBorder:
-                                                          InputBorder.none,
-                                                      focusedErrorBorder:
-                                                          InputBorder.none,
-                                                      filled: true,
-                                                      fillColor: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 8.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Icon(
+                                            Icons.search_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24.0,
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: SizedBox(
+                                                width: 200.0,
+                                                child: TextFormField(
+                                                  controller:
+                                                      _model.textController,
+                                                  focusNode:
+                                                      _model.textFieldFocusNode,
+                                                  autofocus: false,
+                                                  textInputAction:
+                                                      TextInputAction.search,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    labelText: 'Search...',
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              'Open Sans',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    cursorColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                    validator: _model
-                                                        .textControllerValidator
-                                                        .asValidator(context),
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Open Sans',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    enabledBorder:
+                                                        InputBorder.none,
+                                                    focusedBorder:
+                                                        InputBorder.none,
+                                                    errorBorder:
+                                                        InputBorder.none,
+                                                    focusedErrorBorder:
+                                                        InputBorder.none,
+                                                    filled: true,
+                                                    fillColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
                                                   ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  cursorColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  validator: _model
+                                                      .textControllerValidator
+                                                      .asValidator(context),
                                                 ),
                                               ),
                                             ),
-                                            FlutterFlowIconButton(
-                                              borderColor:
+                                          ),
+                                          FlutterFlowIconButton(
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
+                                            borderRadius: 10.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            icon: Icon(
+                                              Icons.close,
+                                              color:
                                                   FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              borderRadius: 10.0,
-                                              borderWidth: 1.0,
-                                              buttonSize: 40.0,
-                                              fillColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              icon: Icon(
-                                                Icons.close,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
-                                              ),
-                                              onPressed: () async {
-                                                safeSetState(() {
-                                                  _model.textController
-                                                      ?.clear();
-                                                });
-                                              },
+                                                      .primaryText,
+                                              size: 24.0,
                                             ),
-                                          ],
-                                        ),
+                                            onPressed: () async {
+                                              safeSetState(() {
+                                                _model.textController?.clear();
+                                              });
+                                            },
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      Builder(
-                        builder: (context) {
-                          final users = widget.pharmDoc?.linkedPatients
-                                  .map((e) => e)
-                                  .toList()
-                                  .toList() ??
-                              [];
-                          if (users.isEmpty) {
-                            return const Center(
-                              child: EmptyListPlaceHolderWidget(),
-                            );
-                          }
+                    ),
+                    Builder(
+                      builder: (context) {
+                        final users = widget.pharmDoc?.linkedPatients
+                                .map((e) => e)
+                                .toList()
+                                .toList() ??
+                            [];
 
-                          return ListView.builder(
-                            padding: const EdgeInsets.fromLTRB(
-                              0,
-                              0,
-                              0,
-                              25.0,
-                            ),
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: users.length,
-                            itemBuilder: (context, usersIndex) {
-                              final usersItem = users[usersIndex];
-                              return StreamBuilder<PatientsRecord>(
-                                stream: PatientsRecord.getDocument(usersItem),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
+                        return ListView.builder(
+                          padding: const EdgeInsets.fromLTRB(
+                            0,
+                            0,
+                            0,
+                            25.0,
+                          ),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: users.length,
+                          itemBuilder: (context, usersIndex) {
+                            final usersItem = users[usersIndex];
+                            return StreamBuilder<PatientsRecord>(
+                              stream: PatientsRecord.getDocument(usersItem),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
                                         ),
                                       ),
-                                    );
-                                  }
+                                    ),
+                                  );
+                                }
 
-                                  final containerPatientsRecord =
-                                      snapshot.data!;
+                                final containerPatientsRecord = snapshot.data!;
 
-                                  return Container(
-                                    decoration: const BoxDecoration(),
-                                    child: Visibility(
-                                      visible: (_model.textController.text ==
-                                                  '') ||
-                                          ((_model.textController.text !=
-                                                      '') &&
-                                              functions.checkNameRegex(
-                                                  _model.textController.text,
+                                return Container(
+                                  decoration: const BoxDecoration(),
+                                  child: Visibility(
+                                    visible: (_model.textController.text == '') ||
+                                        ((_model.textController.text !=
+                                                    '') &&
+                                            functions.checkNameRegex(
+                                                _model.textController.text,
+                                                containerPatientsRecord.name)),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 8.0, 16.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          _model.userDoc =
+                                              await UsersRecord.getDocumentOnce(
                                                   containerPatientsRecord
-                                                      .name)),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 8.0, 16.0, 0.0),
+                                                      .userRef!);
+
+                                          context.pushNamed(
+                                            'userDetails',
+                                            queryParameters: {
+                                              'userRef': serializeParam(
+                                                _model.userDoc,
+                                                ParamType.Document,
+                                              ),
+                                              'pharmDoc': serializeParam(
+                                                widget.pharmDoc,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'userRef': _model.userDoc,
+                                              'pharmDoc': widget.pharmDoc,
+                                            },
+                                          );
+
+                                          safeSetState(() {});
+                                        },
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
@@ -395,7 +406,7 @@ class _ListPharmUsersWidgetState extends State<ListPharmUsersWidget> {
                                                               .bodyLarge
                                                               .override(
                                                                 fontFamily:
-                                                                    'Readex Pro',
+                                                                    'Open Sans',
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -413,7 +424,37 @@ class _ListPharmUsersWidgetState extends State<ListPharmUsersWidget> {
                                                       Colors.transparent,
                                                   highlightColor:
                                                       Colors.transparent,
-                                                  onTap: () async {},
+                                                  onTap: () async {
+                                                    _model.userDocc =
+                                                        await UsersRecord
+                                                            .getDocumentOnce(
+                                                                containerPatientsRecord
+                                                                    .userRef!);
+
+                                                    context.pushNamed(
+                                                      'userDetails',
+                                                      queryParameters: {
+                                                        'userRef':
+                                                            serializeParam(
+                                                          _model.userDocc,
+                                                          ParamType.Document,
+                                                        ),
+                                                        'pharmDoc':
+                                                            serializeParam(
+                                                          widget.pharmDoc,
+                                                          ParamType.Document,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'userRef':
+                                                            _model.userDocc,
+                                                        'pharmDoc':
+                                                            widget.pharmDoc,
+                                                      },
+                                                    );
+
+                                                    safeSetState(() {});
+                                                  },
                                                   child: Icon(
                                                     Icons.arrow_forward,
                                                     color: FlutterFlowTheme.of(
@@ -428,19 +469,19 @@ class _ListPharmUsersWidgetState extends State<ListPharmUsersWidget> {
                                         ),
                                       ),
                                     ),
-                                  );
-                                },
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

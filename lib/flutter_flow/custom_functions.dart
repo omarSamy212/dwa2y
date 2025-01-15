@@ -31,3 +31,28 @@ bool checkNameRegex(
   // Check if the name appears anywhere in the sentence
   return regex.hasMatch(sentence);
 }
+
+int pharmSubRemainingDays(DateTime subDate) {
+// Define the subscription duration in days
+  const int subscriptionDuration = 30;
+
+  // Log the input subscription date
+  debugPrint('Subscription Date: $subDate');
+
+  // Calculate the difference between today and the subscription date
+  final DateTime today = DateTime.now();
+  debugPrint('Today\'s Date: $today');
+
+  final int daysPassed = today.difference(subDate).inDays;
+  debugPrint('Days Passed Since Subscription: $daysPassed');
+
+  // Calculate the remaining days
+  final int remainingDays = subscriptionDuration - daysPassed;
+  debugPrint('Calculated Remaining Days: $remainingDays');
+
+  // Ensure the remaining days are not negative
+  final int result = remainingDays > 0 ? remainingDays : 0;
+  debugPrint('Final Remaining Days (Non-Negative): $result');
+
+  return result;
+}

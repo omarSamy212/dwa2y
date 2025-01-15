@@ -8,6 +8,7 @@ import '/backend/backend.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -178,6 +179,67 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             'pharmDoc': getDoc(['Pharmacies'], PharmaciesRecord.fromSnapshot),
           },
           builder: (context, params) => ListPharmUsersWidget(
+            pharmDoc: params.getParam(
+              'pharmDoc',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'add_pharmUser',
+          path: '/addPharmUser',
+          builder: (context, params) => AddPharmUserWidget(
+            pharmRef: params.getParam(
+              'pharmRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Pharmacies'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'edit_pharm',
+          path: '/editPharm',
+          asyncParams: {
+            'pharmDoc': getDoc(['Pharmacies'], PharmaciesRecord.fromSnapshot),
+          },
+          builder: (context, params) => EditPharmWidget(
+            pharmDoc: params.getParam(
+              'pharmDoc',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'userDetails',
+          path: '/userDetails',
+          asyncParams: {
+            'userRef': getDoc(['users'], UsersRecord.fromSnapshot),
+            'pharmDoc': getDoc(['Pharmacies'], PharmaciesRecord.fromSnapshot),
+          },
+          builder: (context, params) => UserDetailsWidget(
+            userRef: params.getParam(
+              'userRef',
+              ParamType.Document,
+            ),
+            pharmDoc: params.getParam(
+              'pharmDoc',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'edit_user',
+          path: '/editUser',
+          asyncParams: {
+            'patientDoc': getDoc(['Patients'], PatientsRecord.fromSnapshot),
+            'pharmDoc': getDoc(['Pharmacies'], PharmaciesRecord.fromSnapshot),
+          },
+          builder: (context, params) => EditUserWidget(
+            patientDoc: params.getParam(
+              'patientDoc',
+              ParamType.Document,
+            ),
             pharmDoc: params.getParam(
               'pharmDoc',
               ParamType.Document,
@@ -367,11 +429,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/Dwa2y_Starting.PNG',
-                    fit: BoxFit.cover,
+              ? Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
+                      ),
+                    ),
                   ),
                 )
               : page;

@@ -50,6 +50,8 @@ class _ConfirmationDialougeWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 500.0,
+      height: 732.0,
       decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
@@ -86,7 +88,7 @@ class _ConfirmationDialougeWidgetState
                   ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Open Sans',
                         letterSpacing: 0.0,
                       ),
                 ),
@@ -109,7 +111,7 @@ class _ConfirmationDialougeWidgetState
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Open Sans',
                                   color: FlutterFlowTheme.of(context).info,
                                   letterSpacing: 0.0,
                                 ),
@@ -136,7 +138,7 @@ class _ConfirmationDialougeWidgetState
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Open Sans',
                                   color: FlutterFlowTheme.of(context).error,
                                   letterSpacing: 0.0,
                                 ),

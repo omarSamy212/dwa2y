@@ -62,6 +62,16 @@ class UsersRecord extends FirestoreRecord {
   List<DocumentReference> get linkedPharmacies => _linkedPharmacies ?? const [];
   bool hasLinkedPharmacies() => _linkedPharmacies != null;
 
+  // "patientRef" field.
+  DocumentReference? _patientRef;
+  DocumentReference? get patientRef => _patientRef;
+  bool hasPatientRef() => _patientRef != null;
+
+  // "age" field.
+  String? _age;
+  String get age => _age ?? '';
+  bool hasAge() => _age != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -74,6 +84,8 @@ class UsersRecord extends FirestoreRecord {
         : deserializeEnum<Role>(snapshotData['role']);
     _adminOfPharmacy = snapshotData['adminOfPharmacy'] as DocumentReference?;
     _linkedPharmacies = getDataList(snapshotData['linkedPharmacies']);
+    _patientRef = snapshotData['patientRef'] as DocumentReference?;
+    _age = snapshotData['age'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -118,6 +130,8 @@ Map<String, dynamic> createUsersRecordData({
   String? phoneNumber,
   Role? role,
   DocumentReference? adminOfPharmacy,
+  DocumentReference? patientRef,
+  String? age,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -129,6 +143,8 @@ Map<String, dynamic> createUsersRecordData({
       'phone_number': phoneNumber,
       'role': role,
       'adminOfPharmacy': adminOfPharmacy,
+      'patientRef': patientRef,
+      'age': age,
     }.withoutNulls,
   );
 
@@ -149,7 +165,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.role == e2?.role &&
         e1?.adminOfPharmacy == e2?.adminOfPharmacy &&
-        listEquality.equals(e1?.linkedPharmacies, e2?.linkedPharmacies);
+        listEquality.equals(e1?.linkedPharmacies, e2?.linkedPharmacies) &&
+        e1?.patientRef == e2?.patientRef &&
+        e1?.age == e2?.age;
   }
 
   @override
@@ -162,7 +180,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.phoneNumber,
         e?.role,
         e?.adminOfPharmacy,
-        e?.linkedPharmacies
+        e?.linkedPharmacies,
+        e?.patientRef,
+        e?.age
       ]);
 
   @override

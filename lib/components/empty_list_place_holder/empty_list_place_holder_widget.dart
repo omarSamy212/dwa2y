@@ -53,7 +53,7 @@ class _EmptyListPlaceHolderWidgetState
         child: Text(
           'لا يوجد ',
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Readex Pro',
+                fontFamily: 'Open Sans',
                 fontSize: 50.0,
                 letterSpacing: 0.0,
               ),

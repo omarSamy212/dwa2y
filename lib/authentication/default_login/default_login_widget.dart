@@ -136,8 +136,9 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Noto Sans Arabic',
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -164,7 +165,7 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily: 'Open Sans',
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
@@ -228,7 +229,7 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Open Sans',
                                             letterSpacing: 0.0,
                                           ),
                                       textAlign: TextAlign.start,
@@ -256,7 +257,7 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily: 'Open Sans',
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
@@ -318,7 +319,7 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Open Sans',
                                             letterSpacing: 0.0,
                                           ),
                                       validator: _model
@@ -361,7 +362,7 @@ class _DefaultLoginWidgetState extends State<DefaultLoginWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Open Sans',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),

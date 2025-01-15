@@ -338,7 +338,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Open Sans',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -363,7 +363,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Readex Pro',
+                                                                    'Open Sans',
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -589,9 +589,9 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                                 Align(
                                                                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                   child: Text(
-                                                                                    'المستخدمين',
+                                                                                    'العملاء',
                                                                                     style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                          fontFamily: 'Readex Pro',
+                                                                                          fontFamily: 'Open Sans',
                                                                                           letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
@@ -620,7 +620,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                                     child: Text(
                                                                                       '32.2%',
                                                                                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                            fontFamily: 'Readex Pro',
+                                                                                            fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).secondary,
                                                                                             letterSpacing: 0.0,
                                                                                           ),
@@ -629,44 +629,24 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                                 Expanded(
                                                                                   child: Padding(
                                                                                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 4.0, 0.0),
-                                                                                    child: FutureBuilder<int>(
-                                                                                      future: queryPatientsRecordCount(),
-                                                                                      builder: (context, snapshot) {
-                                                                                        // Customize what your widget looks like when it's loading.
-                                                                                        if (!snapshot.hasData) {
-                                                                                          return Center(
-                                                                                            child: SizedBox(
-                                                                                              width: 50.0,
-                                                                                              height: 50.0,
-                                                                                              child: CircularProgressIndicator(
-                                                                                                valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                                  FlutterFlowTheme.of(context).primary,
-                                                                                                ),
-                                                                                              ),
+                                                                                    child: RichText(
+                                                                                      textScaler: MediaQuery.of(context).textScaler,
+                                                                                      text: TextSpan(
+                                                                                        children: [
+                                                                                          TextSpan(
+                                                                                            text: valueOrDefault<String>(
+                                                                                              pharmAdminHomePharmaciesRecord.linkedPatients.length.toString(),
+                                                                                              '0',
                                                                                             ),
-                                                                                          );
-                                                                                        }
-                                                                                        int richTextCount = snapshot.data!;
-
-                                                                                        return RichText(
-                                                                                          textScaler: MediaQuery.of(context).textScaler,
-                                                                                          text: TextSpan(
-                                                                                            children: [
-                                                                                              TextSpan(
-                                                                                                text: valueOrDefault<String>(
-                                                                                                  pharmAdminHomePharmaciesRecord.linkedPatients.length.toString(),
-                                                                                                  '0',
-                                                                                                ),
-                                                                                                style: const TextStyle(),
-                                                                                              )
-                                                                                            ],
-                                                                                            style: FlutterFlowTheme.of(context).displaySmall.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  letterSpacing: 0.0,
-                                                                                                ),
-                                                                                          ),
-                                                                                        );
-                                                                                      },
+                                                                                            style: const TextStyle(),
+                                                                                          )
+                                                                                        ],
+                                                                                        style: FlutterFlowTheme.of(context).displaySmall.override(
+                                                                                              fontFamily: 'Noto Sans Arabic',
+                                                                                              letterSpacing: 0.0,
+                                                                                              useGoogleFonts: false,
+                                                                                            ),
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -754,7 +734,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                   .titleLarge
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Open Sans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .info,
@@ -799,7 +779,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          context.goNamed(
+                                                          context.pushNamed(
                                                             'listPharmUsers',
                                                             queryParameters: {
                                                               'pharmDoc':
@@ -859,7 +839,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                   size: 35.0,
                                                                 ),
                                                                 Text(
-                                                                  'العملاء',
+                                                                  'العملاء الحاليون',
                                                                   textAlign:
                                                                       TextAlign
                                                                           .center,
@@ -868,7 +848,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                       .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Open Sans',
                                                                         fontSize:
                                                                             13.0,
                                                                         letterSpacing:
@@ -892,8 +872,18 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                         highlightColor:
                                                             Colors.transparent,
                                                         onTap: () async {
-                                                          context.goNamed(
-                                                              'Add_reminder');
+                                                          context.pushNamed(
+                                                            'add_pharmUser',
+                                                            queryParameters: {
+                                                              'pharmRef':
+                                                                  serializeParam(
+                                                                pharmAdminHomePharmaciesRecord
+                                                                    .reference,
+                                                                ParamType
+                                                                    .DocumentReference,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
                                                         },
                                                         child: Container(
                                                           width:
@@ -938,7 +928,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                   size: 35.0,
                                                                 ),
                                                                 Text(
-                                                                  'أضافة عميل',
+                                                                  ' أضافة عميل جديد',
                                                                   textAlign:
                                                                       TextAlign
                                                                           .center,
@@ -947,7 +937,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                                                       .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Open Sans',
                                                                         fontSize:
                                                                             13.0,
                                                                         letterSpacing:
@@ -1020,7 +1010,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily: 'Open Sans',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),
@@ -1041,7 +1031,7 @@ class _PharmAdminHomeWidgetState extends State<PharmAdminHomeWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Open Sans',
                                             letterSpacing: 0.0,
                                           ),
                                     ),

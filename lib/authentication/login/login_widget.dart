@@ -239,8 +239,9 @@ class _LoginWidgetState extends State<LoginWidget>
                         textAlign: TextAlign.start,
                         style:
                             FlutterFlowTheme.of(context).displayMedium.override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Noto Sans Arabic',
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: false,
                                 ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation1']!),
@@ -263,8 +264,9 @@ class _LoginWidgetState extends State<LoginWidget>
                               style: FlutterFlowTheme.of(context)
                                   .displayMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Noto Sans Arabic',
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: false,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation2']!),
@@ -278,7 +280,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               style: FlutterFlowTheme.of(context)
                                   .labelLarge
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Open Sans',
                                     letterSpacing: 0.0,
                                   ),
                             ).animateOnPageLoad(
@@ -298,13 +300,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelLarge
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Open Sans',
                                       letterSpacing: 0.0,
                                     ),
                                 errorStyle: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Open Sans',
                                       color: FlutterFlowTheme.of(context).error,
                                       letterSpacing: 0.0,
                                       lineHeight: 3.0,
@@ -359,7 +361,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Open Sans',
                                     letterSpacing: 0.0,
                                     lineHeight: 3.0,
                                   ),
@@ -434,7 +436,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Open Sans',
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,

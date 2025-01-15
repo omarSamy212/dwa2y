@@ -1,9 +1,8 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'add_pharm_widget.dart' show AddPharmWidget;
+import 'edit_user_widget.dart' show EditUserWidget;
 import 'package:flutter/material.dart';
 
-class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
+class EditUserModel extends FlutterFlowModel<EditUserWidget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -11,26 +10,13 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
   FocusNode? emailFocusNode;
   TextEditingController? emailTextController;
   String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'البريد الالكتروني مطلوب';
-    }
-
-    return null;
-  }
-
-  // State field(s) for pass widget.
-  FocusNode? passFocusNode;
-  TextEditingController? passTextController;
-  late bool passVisibility;
-  String? Function(BuildContext, String?)? passTextControllerValidator;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
   String? _nameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'اسم الصيدلية مطلوب';
+      return 'اسم العميل مطلوب';
     }
 
     return null;
@@ -53,44 +39,38 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
 
   // State field(s) for PlacePicker widget.
   FFPlace placePickerValue = const FFPlace();
-  // State field(s) for imageLink widget.
-  FocusNode? imageLinkFocusNode;
-  TextEditingController? imageLinkTextController;
-  String? Function(BuildContext, String?)? imageLinkTextControllerValidator;
-  // State field(s) for location widget.
-  FocusNode? locationFocusNode;
-  TextEditingController? locationTextController;
-  String? Function(BuildContext, String?)? locationTextControllerValidator;
-  String? _locationTextControllerValidator(BuildContext context, String? val) {
+  // State field(s) for age widget.
+  FocusNode? ageFocusNode;
+  TextEditingController? ageTextController;
+  String? Function(BuildContext, String?)? ageTextControllerValidator;
+  String? _ageTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'وصف العنوان مطلوب';
+      return 'العمر مطلوب';
     }
 
     return null;
   }
 
+  // State field(s) for location widget.
+  FocusNode? locationFocusNode;
+  TextEditingController? locationTextController;
+  String? Function(BuildContext, String?)? locationTextControllerValidator;
   // State field(s) for Switch widget.
   bool? switchValue;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
-  TextEditingController? textController7;
-  String? Function(BuildContext, String?)? textController7Validator;
+  TextEditingController? textController6;
+  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
-  TextEditingController? textController8;
-  String? Function(BuildContext, String?)? textController8Validator;
-  // Stores action output result for [Custom Action - createPharmAcc] action in Button widget.
-  DocumentReference? userDocRef;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  PharmaciesRecord? pharmDocRef;
+  TextEditingController? textController7;
+  String? Function(BuildContext, String?)? textController7Validator;
 
   @override
   void initState(BuildContext context) {
-    emailTextControllerValidator = _emailTextControllerValidator;
-    passVisibility = false;
     nameTextControllerValidator = _nameTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
-    locationTextControllerValidator = _locationTextControllerValidator;
+    ageTextControllerValidator = _ageTextControllerValidator;
   }
 
   @override
@@ -98,25 +78,22 @@ class AddPharmModel extends FlutterFlowModel<AddPharmWidget> {
     emailFocusNode?.dispose();
     emailTextController?.dispose();
 
-    passFocusNode?.dispose();
-    passTextController?.dispose();
-
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();
 
-    imageLinkFocusNode?.dispose();
-    imageLinkTextController?.dispose();
+    ageFocusNode?.dispose();
+    ageTextController?.dispose();
 
     locationFocusNode?.dispose();
     locationTextController?.dispose();
 
     textFieldFocusNode1?.dispose();
-    textController7?.dispose();
+    textController6?.dispose();
 
     textFieldFocusNode2?.dispose();
-    textController8?.dispose();
+    textController7?.dispose();
   }
 }

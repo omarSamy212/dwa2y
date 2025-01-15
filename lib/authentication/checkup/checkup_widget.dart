@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:lottie/lottie.dart';
 import 'checkup_model.dart';
 export 'checkup_model.dart';
 
@@ -38,9 +39,13 @@ class _CheckupWidgetState extends State<CheckupWidget>
 
         return;
       } else if (currentUserDocument?.role == Role.pharmacyAdmin) {
+        context.goNamedAuth('pharmAdminHome', context.mounted);
+
         return;
       } else if (currentUserDocument?.role == Role.patient) {
-        context.goNamedAuth('user_HomePage', context.mounted);
+        GoRouter.of(context).prepareAuthEvent();
+        await authManager.signOut();
+        GoRouter.of(context).clearRedirectLocation();
 
         return;
       } else {
@@ -97,27 +102,13 @@ class _CheckupWidgetState extends State<CheckupWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation': AnimationInfo(
-        loop: true,
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 110.0.ms,
-            duration: 2000.0.ms,
-            begin: 1.0,
-            end: 1.0,
-          ),
-          ShimmerEffect(
-            curve: Curves.easeInOut,
-            delay: 110.0.ms,
-            duration: 2000.0.ms,
-            color: const Color(0x80FFFFFF),
-            angle: 0.524,
-          ),
-        ],
-      ),
     });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -158,22 +149,39 @@ class _CheckupWidgetState extends State<CheckupWidget>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      'assets/images/dwa2y_logo2.png',
-                      width: 190.0,
-                      height: 204.0,
-                      fit: BoxFit.fitHeight,
-                    ).animateOnPageLoad(
-                        animationsMap['imageOnPageLoadAnimation']!),
-                    Text(
-                      'دوائي',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            fontSize: 55.0,
-                            letterSpacing: 0.0,
+                    Stack(
+                      children: [
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 60.0, 0.0, 0.0),
+                            child: Lottie.asset(
+                              'assets/jsons/Animation_-_1736512806971.json',
+                              width: 327.0,
+                              height: 266.0,
+                              fit: BoxFit.contain,
+                              animate: true,
+                            ),
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 50.0, 0.0, 0.0),
+                            child: Image.asset(
+                              'assets/images/dwa2yStarting.png',
+                              width: 799.0,
+                              height: 746.0,
+                              fit: BoxFit.cover,
+                              alignment: const Alignment(0.0, 0.0),
+                            ).animateOnPageLoad(
+                                animationsMap['imageOnPageLoadAnimation']!),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ).animateOnPageLoad(

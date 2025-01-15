@@ -46,6 +46,16 @@ class PharmaciesRecord extends FirestoreRecord {
   List<DocumentReference> get linkedPatients => _linkedPatients ?? const [];
   bool hasLinkedPatients() => _linkedPatients != null;
 
+  // "phone" field.
+  String? _phone;
+  String get phone => _phone ?? '';
+  bool hasPhone() => _phone != null;
+
+  // "subscriptionDate" field.
+  DateTime? _subscriptionDate;
+  DateTime? get subscriptionDate => _subscriptionDate;
+  bool hasSubscriptionDate() => _subscriptionDate != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _location = snapshotData['location'] as String?;
@@ -53,6 +63,8 @@ class PharmaciesRecord extends FirestoreRecord {
     _pharmacyAdmin = snapshotData['pharmacyAdmin'] as DocumentReference?;
     _logo = snapshotData['logo'] as String?;
     _linkedPatients = getDataList(snapshotData['linkedPatients']);
+    _phone = snapshotData['phone'] as String?;
+    _subscriptionDate = snapshotData['subscriptionDate'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -95,6 +107,8 @@ Map<String, dynamic> createPharmaciesRecordData({
   bool? isActive,
   DocumentReference? pharmacyAdmin,
   String? logo,
+  String? phone,
+  DateTime? subscriptionDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,6 +117,8 @@ Map<String, dynamic> createPharmaciesRecordData({
       'isActive': isActive,
       'pharmacyAdmin': pharmacyAdmin,
       'logo': logo,
+      'phone': phone,
+      'subscriptionDate': subscriptionDate,
     }.withoutNulls,
   );
 
@@ -120,7 +136,9 @@ class PharmaciesRecordDocumentEquality implements Equality<PharmaciesRecord> {
         e1?.isActive == e2?.isActive &&
         e1?.pharmacyAdmin == e2?.pharmacyAdmin &&
         e1?.logo == e2?.logo &&
-        listEquality.equals(e1?.linkedPatients, e2?.linkedPatients);
+        listEquality.equals(e1?.linkedPatients, e2?.linkedPatients) &&
+        e1?.phone == e2?.phone &&
+        e1?.subscriptionDate == e2?.subscriptionDate;
   }
 
   @override
@@ -130,7 +148,9 @@ class PharmaciesRecordDocumentEquality implements Equality<PharmaciesRecord> {
         e?.isActive,
         e?.pharmacyAdmin,
         e?.logo,
-        e?.linkedPatients
+        e?.linkedPatients,
+        e?.phone,
+        e?.subscriptionDate
       ]);
 
   @override

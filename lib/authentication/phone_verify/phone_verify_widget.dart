@@ -148,8 +148,9 @@ class _PhoneVerifyWidgetState extends State<PhoneVerifyWidget>
                               style: FlutterFlowTheme.of(context)
                                   .displayMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Noto Sans Arabic',
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: false,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
@@ -181,7 +182,7 @@ class _PhoneVerifyWidgetState extends State<PhoneVerifyWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .labelLarge
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Open Sans',
                                       letterSpacing: 0.0,
                                       lineHeight: 1.2,
                                     ),
@@ -198,7 +199,7 @@ class _PhoneVerifyWidgetState extends State<PhoneVerifyWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: 'Open Sans',
                                     letterSpacing: 0.0,
                                   ),
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -282,7 +283,7 @@ class _PhoneVerifyWidgetState extends State<PhoneVerifyWidget>
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Open Sans',
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
