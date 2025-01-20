@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -16,47 +15,98 @@ class MedicinesRecord extends FirestoreRecord {
     _initializeFields();
   }
 
+  // "patientRef" field.
+  DocumentReference? _patientRef;
+  DocumentReference? get patientRef => _patientRef;
+  bool hasPatientRef() => _patientRef != null;
+
+  // "pharmacyAdminRef" field.
+  DocumentReference? _pharmacyAdminRef;
+  DocumentReference? get pharmacyAdminRef => _pharmacyAdminRef;
+  bool hasPharmacyAdminRef() => _pharmacyAdminRef != null;
+
   // "name" field.
   String? _name;
   String get name => _name ?? '';
   bool hasName() => _name != null;
+
+  // "boxColor" field.
+  String? _boxColor;
+  String get boxColor => _boxColor ?? '';
+  bool hasBoxColor() => _boxColor != null;
+
+  // "pillColor" field.
+  String? _pillColor;
+  String get pillColor => _pillColor ?? '';
+  bool hasPillColor() => _pillColor != null;
+
+  // "totalPills" field.
+  int? _totalPills;
+  int get totalPills => _totalPills ?? 0;
+  bool hasTotalPills() => _totalPills != null;
+
+  // "remainingPills" field.
+  int? _remainingPills;
+  int get remainingPills => _remainingPills ?? 0;
+  bool hasRemainingPills() => _remainingPills != null;
 
   // "dosagePerDay" field.
   int? _dosagePerDay;
   int get dosagePerDay => _dosagePerDay ?? 0;
   bool hasDosagePerDay() => _dosagePerDay != null;
 
-  // "dosageTimes" field.
-  List<DateTime>? _dosageTimes;
-  List<DateTime> get dosageTimes => _dosageTimes ?? const [];
-  bool hasDosageTimes() => _dosageTimes != null;
+  // "pillsPerDose" field.
+  int? _pillsPerDose;
+  int get pillsPerDose => _pillsPerDose ?? 0;
+  bool hasPillsPerDose() => _pillsPerDose != null;
 
-  // "availableStock" field.
-  int? _availableStock;
-  int get availableStock => _availableStock ?? 0;
-  bool hasAvailableStock() => _availableStock != null;
+  // "updatedAt" field.
+  DateTime? _updatedAt;
+  DateTime? get updatedAt => _updatedAt;
+  bool hasUpdatedAt() => _updatedAt != null;
 
-  // "patient" field.
-  DocumentReference? _patient;
-  DocumentReference? get patient => _patient;
-  bool hasPatient() => _patient != null;
+  // "createdAt" field.
+  DateTime? _createdAt;
+  DateTime? get createdAt => _createdAt;
+  bool hasCreatedAt() => _createdAt != null;
 
-  // "pharmacy" field.
-  DocumentReference? _pharmacy;
-  DocumentReference? get pharmacy => _pharmacy;
-  bool hasPharmacy() => _pharmacy != null;
+  // "notes" field.
+  String? _notes;
+  String get notes => _notes ?? '';
+  bool hasNotes() => _notes != null;
+
+  // "schedule" field.
+  List<ScheduleStruct>? _schedule;
+  List<ScheduleStruct> get schedule => _schedule ?? const [];
+  bool hasSchedule() => _schedule != null;
+
+  // "type" field.
+  String? _type;
+  String get type => _type ?? '';
+  bool hasType() => _type != null;
 
   void _initializeFields() {
+    _patientRef = snapshotData['patientRef'] as DocumentReference?;
+    _pharmacyAdminRef = snapshotData['pharmacyAdminRef'] as DocumentReference?;
     _name = snapshotData['name'] as String?;
+    _boxColor = snapshotData['boxColor'] as String?;
+    _pillColor = snapshotData['pillColor'] as String?;
+    _totalPills = castToType<int>(snapshotData['totalPills']);
+    _remainingPills = castToType<int>(snapshotData['remainingPills']);
     _dosagePerDay = castToType<int>(snapshotData['dosagePerDay']);
-    _dosageTimes = getDataList(snapshotData['dosageTimes']);
-    _availableStock = castToType<int>(snapshotData['availableStock']);
-    _patient = snapshotData['patient'] as DocumentReference?;
-    _pharmacy = snapshotData['pharmacy'] as DocumentReference?;
+    _pillsPerDose = castToType<int>(snapshotData['pillsPerDose']);
+    _updatedAt = snapshotData['updatedAt'] as DateTime?;
+    _createdAt = snapshotData['createdAt'] as DateTime?;
+    _notes = snapshotData['notes'] as String?;
+    _schedule = getStructList(
+      snapshotData['schedule'],
+      ScheduleStruct.fromMap,
+    );
+    _type = snapshotData['type'] as String?;
   }
 
   static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('Medicines');
+      FirebaseFirestore.instance.collection('medicines');
 
   static Stream<MedicinesRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => MedicinesRecord.fromSnapshot(s));
@@ -90,19 +140,35 @@ class MedicinesRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createMedicinesRecordData({
+  DocumentReference? patientRef,
+  DocumentReference? pharmacyAdminRef,
   String? name,
+  String? boxColor,
+  String? pillColor,
+  int? totalPills,
+  int? remainingPills,
   int? dosagePerDay,
-  int? availableStock,
-  DocumentReference? patient,
-  DocumentReference? pharmacy,
+  int? pillsPerDose,
+  DateTime? updatedAt,
+  DateTime? createdAt,
+  String? notes,
+  String? type,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
+      'patientRef': patientRef,
+      'pharmacyAdminRef': pharmacyAdminRef,
       'name': name,
+      'boxColor': boxColor,
+      'pillColor': pillColor,
+      'totalPills': totalPills,
+      'remainingPills': remainingPills,
       'dosagePerDay': dosagePerDay,
-      'availableStock': availableStock,
-      'patient': patient,
-      'pharmacy': pharmacy,
+      'pillsPerDose': pillsPerDose,
+      'updatedAt': updatedAt,
+      'createdAt': createdAt,
+      'notes': notes,
+      'type': type,
     }.withoutNulls,
   );
 
@@ -115,22 +181,38 @@ class MedicinesRecordDocumentEquality implements Equality<MedicinesRecord> {
   @override
   bool equals(MedicinesRecord? e1, MedicinesRecord? e2) {
     const listEquality = ListEquality();
-    return e1?.name == e2?.name &&
+    return e1?.patientRef == e2?.patientRef &&
+        e1?.pharmacyAdminRef == e2?.pharmacyAdminRef &&
+        e1?.name == e2?.name &&
+        e1?.boxColor == e2?.boxColor &&
+        e1?.pillColor == e2?.pillColor &&
+        e1?.totalPills == e2?.totalPills &&
+        e1?.remainingPills == e2?.remainingPills &&
         e1?.dosagePerDay == e2?.dosagePerDay &&
-        listEquality.equals(e1?.dosageTimes, e2?.dosageTimes) &&
-        e1?.availableStock == e2?.availableStock &&
-        e1?.patient == e2?.patient &&
-        e1?.pharmacy == e2?.pharmacy;
+        e1?.pillsPerDose == e2?.pillsPerDose &&
+        e1?.updatedAt == e2?.updatedAt &&
+        e1?.createdAt == e2?.createdAt &&
+        e1?.notes == e2?.notes &&
+        listEquality.equals(e1?.schedule, e2?.schedule) &&
+        e1?.type == e2?.type;
   }
 
   @override
   int hash(MedicinesRecord? e) => const ListEquality().hash([
+        e?.patientRef,
+        e?.pharmacyAdminRef,
         e?.name,
+        e?.boxColor,
+        e?.pillColor,
+        e?.totalPills,
+        e?.remainingPills,
         e?.dosagePerDay,
-        e?.dosageTimes,
-        e?.availableStock,
-        e?.patient,
-        e?.pharmacy
+        e?.pillsPerDose,
+        e?.updatedAt,
+        e?.createdAt,
+        e?.notes,
+        e?.schedule,
+        e?.type
       ]);
 
   @override

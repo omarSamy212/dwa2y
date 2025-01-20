@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -15,11 +14,6 @@ class PatientsRecord extends FirestoreRecord {
   ) {
     _initializeFields();
   }
-
-  // "medicineList" field.
-  List<DocumentReference>? _medicineList;
-  List<DocumentReference> get medicineList => _medicineList ?? const [];
-  bool hasMedicineList() => _medicineList != null;
 
   // "name" field.
   String? _name;
@@ -46,13 +40,18 @@ class PatientsRecord extends FirestoreRecord {
   List<DocumentReference> get linkedPharmacies => _linkedPharmacies ?? const [];
   bool hasLinkedPharmacies() => _linkedPharmacies != null;
 
+  // "midicineList" field.
+  List<DocumentReference>? _midicineList;
+  List<DocumentReference> get midicineList => _midicineList ?? const [];
+  bool hasMidicineList() => _midicineList != null;
+
   void _initializeFields() {
-    _medicineList = getDataList(snapshotData['medicineList']);
     _name = snapshotData['name'] as String?;
     _phone = snapshotData['phone'] as String?;
     _userRef = snapshotData['userRef'] as DocumentReference?;
     _notes = snapshotData['notes'] as String?;
     _linkedPharmacies = getDataList(snapshotData['linkedPharmacies']);
+    _midicineList = getDataList(snapshotData['midicineList']);
   }
 
   static CollectionReference get collection =>
@@ -113,22 +112,22 @@ class PatientsRecordDocumentEquality implements Equality<PatientsRecord> {
   @override
   bool equals(PatientsRecord? e1, PatientsRecord? e2) {
     const listEquality = ListEquality();
-    return listEquality.equals(e1?.medicineList, e2?.medicineList) &&
-        e1?.name == e2?.name &&
+    return e1?.name == e2?.name &&
         e1?.phone == e2?.phone &&
         e1?.userRef == e2?.userRef &&
         e1?.notes == e2?.notes &&
-        listEquality.equals(e1?.linkedPharmacies, e2?.linkedPharmacies);
+        listEquality.equals(e1?.linkedPharmacies, e2?.linkedPharmacies) &&
+        listEquality.equals(e1?.midicineList, e2?.midicineList);
   }
 
   @override
   int hash(PatientsRecord? e) => const ListEquality().hash([
-        e?.medicineList,
         e?.name,
         e?.phone,
         e?.userRef,
         e?.notes,
-        e?.linkedPharmacies
+        e?.linkedPharmacies,
+        e?.midicineList
       ]);
 
   @override

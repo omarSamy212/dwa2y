@@ -6,6 +6,11 @@ enum Role {
   patient,
 }
 
+enum ReminderType {
+  reminder,
+  low_stock,
+}
+
 extension FFEnumExtensions<T extends Enum> on T {
   String serialize() => name;
 }
@@ -19,6 +24,8 @@ T? deserializeEnum<T>(String? value) {
   switch (T) {
     case (Role):
       return Role.values.deserialize(value) as T?;
+    case (ReminderType):
+      return ReminderType.values.deserialize(value) as T?;
     default:
       return null;
   }

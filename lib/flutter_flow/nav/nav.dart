@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 
-
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
@@ -114,7 +113,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Add_reminder',
           path: '/addReminder',
-          builder: (context, params) => const AddReminderWidget(),
+          builder: (context, params) => AddReminderWidget(
+            pathRef: params.getParam(
+              'pathRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Patients'],
+            ),
+            userRef: params.getParam(
+              'userRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'checkup',
@@ -245,6 +257,35 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.Document,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'Add_new_user',
+          path: '/addNewUser',
+          builder: (context, params) => const AddNewUserWidget(),
+        ),
+        FFRoute(
+          name: 'listReminders',
+          path: '/listReminders',
+          asyncParams: {
+            'userDoc': getDoc(['users'], UsersRecord.fromSnapshot),
+            'pharmDoc': getDoc(['Pharmacies'], PharmaciesRecord.fromSnapshot),
+          },
+          builder: (context, params) => ListRemindersWidget(
+            pathRef: params.getParam(
+              'pathRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Patients'],
+            ),
+            userDoc: params.getParam(
+              'userDoc',
+              ParamType.Document,
+            ),
+            pharmDoc: params.getParam(
+              'pharmDoc',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -364,6 +405,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -382,6 +424,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }
